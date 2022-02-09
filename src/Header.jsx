@@ -6,10 +6,11 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { Link } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
-
+import dropDownList from "../src/headerOptionDropdownList.json";
 function Header() {
   const [{ basket, user }, dispatch] = useStateValue();
-
+  let dropdown = dropDownList.dropdownList;
+  console.log(dropdown);
   const handleAuthentication = () => {
     if (user) {
       auth.signOut();
@@ -33,12 +34,18 @@ function Header() {
       </div>
 
       <div className="header_search">
+        <select name="dropdown" className="header_searchDropDown">
+          {dropdown.map((item) => {
+            console.log(item.name);
+            return <option value={item.name}>{item.name}</option>;
+          })}
+        </select>
         <input className="header_searchInput" type="text"></input>
         <SearchIcon className="header_searchIcon"></SearchIcon>
       </div>
 
       <div className="header_nav">
-        <Link to="login">
+        <Link to="login" style={{ textDecoration: "none" }}>
           <div onClick={handleAuthentication} className="header_option">
             <span className="header_optionLineOne">Hello Guest</span>
             <span className="header_optionLineTwo">
@@ -56,7 +63,7 @@ function Header() {
           <span className="header_optionLineTwo">Prime</span>
         </div>
 
-        <Link to="/checkout">
+        <Link to="/checkout" style={{ textDecoration: "none" }}>
           <div className="header_optionBasket">
             <ShoppingBasketIcon></ShoppingBasketIcon>
             <span className="header_optionLineTwo header_basketCount">

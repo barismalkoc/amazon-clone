@@ -22,6 +22,10 @@
   border-radius: 24px;
 }
 
+.header_search > input:focus {
+  outline: none;
+}
+
 .header_searchInput {
   height: 12px;
   padding: 10px;
@@ -75,6 +79,7 @@
 .header_nav {
   display: flex;
   justify-content: space-evenly;
+  gap: 10px;
 }
 
 .header_optionLineOne {
@@ -103,4 +108,18 @@
 .header_basketCount {
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.header_searchDropDown {
+
+  height: 34px;
+  width: 42px;
+  
+  background-color: #f3f3f3;
+  border-radius: 7px 0 0 7px;
+  
+}
+
+.header_searchDropDown > select:focus {
+  outline: none;
 }
