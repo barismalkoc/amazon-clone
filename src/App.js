@@ -4,6 +4,7 @@ import "./App.css";
 import Checkout from "./Checkout";
 import { auth } from "./firebase";
 import Header from "./Header";
+import HeaderBanner from "./HeaderBanner";
 import Home from "./Home";
 import Login from "./Login";
 import { useStateValue } from "./StateProvider";
@@ -35,10 +36,12 @@ function App() {
         </Route>
         <Route path="/checkout">
           <Header></Header>
+          <HeaderBanner></HeaderBanner>
           <Checkout></Checkout>
         </Route>
         <Route path="/">
           <Header></Header>
+          <HeaderBanner></HeaderBanner>
           <Home></Home>
         </Route>
       </Switch>

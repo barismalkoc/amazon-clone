@@ -1,0 +1,28 @@
+.header_banner {
+    display: flex;
+
+    height: 38px;
+    background-color: #232f3e;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+}
+.banner_left {
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+}
+
+.banner_leftIcon {
+    padding-top: 2px;
+}
+.banner_leftLineOne {
+    padding-left: 3px;
+}
+
+.banner_fill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 10px;
+}
