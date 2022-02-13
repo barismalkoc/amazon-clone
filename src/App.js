@@ -9,6 +9,7 @@ import Header from "./Header";
 import HeaderBanner from "./HeaderBanner";
 import Home from "./Home";
 import Login from "./Login";
+import Orders from "./Orders";
 import Payment from "./Payment";
 import { useStateValue } from "./StateProvider";
 
@@ -40,6 +41,10 @@ function App() {
       <Switch>
         <Route path="/login">
           <Login></Login>
+        </Route>
+        <Route path="/orders">
+          <Header></Header>
+          <Orders></Orders>
         </Route>
         <Route path="/checkout">
           <Header></Header>
