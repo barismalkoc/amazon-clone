@@ -23,6 +23,17 @@
 .banner_fill {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     padding-left: 10px;
+}
+
+.banner_fill > * {
+    border: 1px solid #232f3e;
+    border-radius: 2px;
+    padding: 3px;
+}
+.banner_fill >  *:hover {
+    border-color: white;
+    color: #f0c14b;
+  
 }

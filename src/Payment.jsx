@@ -72,6 +72,7 @@ function Payment() {
                   image={item.image}
                   price={item.price}
                   rating={item.rating}
+                  hiddenButton
                 />
               );
             })}

@@ -2,7 +2,6 @@ import React from "react";
 import "./HeaderBanner.css";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
-import HamburgerMenu from "./HamburgerMenu";
 
 function HeaderBanner() {
   const [showMenu, setShowMenu] = useState(false);
@@ -12,7 +11,6 @@ function HeaderBanner() {
         <MenuIcon className="banner_leftIcon"></MenuIcon>
         <span className="banner_leftLineOne">All</span>
       </div>
-      {showMenu ? <HamburgerMenu></HamburgerMenu> : null}
       <div className="banner_fill">
         <span className="banner_fillLink">Today's Deal</span>
         <span className="banner_fillLink">Customer Service</span>
