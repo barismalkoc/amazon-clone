@@ -11,6 +11,7 @@ import Home from "./Home";
 import Login from "./Login";
 import Orders from "./Orders";
 import Payment from "./Payment";
+import Register from "./Register";
 import { useStateValue } from "./StateProvider";
 
 const promise = loadStripe(
@@ -37,6 +38,9 @@ function App() {
   return (
     <div className="app">
       <Switch>
+        <Route path="/register">
+          <Register></Register>
+        </Route>
         <Route path="/login">
           <Login></Login>
         </Route>

@@ -18,19 +18,19 @@ function Login() {
       .catch((error) => alert(error.message));
   };
 
-  const register = (e) => {
-    e.preventDefault();
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((auth) => {
-        console.log(auth);
+  // const register = (e) => {
+  //   e.preventDefault();
+  //   auth
+  //     .createUserWithEmailAndPassword(email, password)
+  //     .then((auth) => {
+  //       console.log(auth);
 
-        if (auth) {
-          history.push("/");
-        }
-      })
-      .catch((error) => alert(error.message));
-  };
+  //       if (auth) {
+  //         history.push("/");
+  //       }
+  //     })
+  //     .catch((error) => alert(error.message));
+  // };
   return (
     <div className="login">
       <Link to="/">
@@ -68,9 +68,11 @@ function Login() {
           Notice.
         </p>
 
-        <button onClick={register} className="login_registerButton">
-          Create your Amazon Account
-        </button>
+        <Link to="register">
+          <button className="login_registerButton">
+            Create your Amazon Account
+          </button>
+        </Link>
       </div>
     </div>
   );
