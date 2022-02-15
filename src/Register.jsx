@@ -5,7 +5,9 @@ import UserService from "./services/userService";
 import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
 import { auth } from "./firebase";
+import { useStateValue } from "./StateProvider";
 function Register() {
+  const [userName, dispatch] = useStateValue();
   let userService = new UserService();
 
   const history = useHistory();
@@ -24,6 +26,11 @@ function Register() {
     };
     console.log(values);
     userService.add(values);
+
+    dispatch({
+      type: "SET_USER_NAME",
+      userName: firstName,
+    });
 
     register();
   };

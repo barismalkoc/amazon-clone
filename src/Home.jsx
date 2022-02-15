@@ -12,7 +12,6 @@ function Home() {
       try {
         let productService = new ProductService();
         productService.getAll().then((result) => setProduct(result.data.data));
-        console.log(product);
       } catch (error) {
         console.log(error);
       }

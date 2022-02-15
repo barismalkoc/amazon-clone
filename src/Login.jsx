@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "./firebase";
 import "./Login.css";
+import UserService from "./services/userService";
+import { useStateValue } from "./StateProvider";
 function Login() {
+  let userService = new UserService();
+
+  const [userName, dispatch] = useStateValue();
+  const [users, setUsers] = useState([]);
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,8 +22,28 @@ function Login() {
         history.push("/");
       })
       .catch((error) => alert(error.message));
+
+    users.map((user) => {
+      if (user.mail == email) {
+        dispatch({
+          type: "SET_USER_NAME",
+          userName: user.firstName,
+        });
+        console.log(user.firstName);
+      }
+    });
   };
 
+  useEffect(() => {
+    const getAllUser = async () => {
+      try {
+        userService.getAll().then((result) => setUsers(result.data.data));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getAllUser();
+  }, []);
   return (
     <div className="login">
       <Link to="/">

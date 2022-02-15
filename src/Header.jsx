@@ -8,9 +8,9 @@ import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 import dropDownList from "../src/headerOptionDropdownList.json";
 function Header() {
-  const [{ basket, user }, dispatch] = useStateValue();
+  const [{ basket, user, userName }, dispatch] = useStateValue();
   let dropdown = dropDownList.dropdownList;
-  console.log(dropdown);
+
   const handleAuthentication = () => {
     if (user) {
       auth.signOut();
@@ -36,7 +36,6 @@ function Header() {
       <div className="header_search">
         <select name="dropdown" className="header_searchDropDown">
           {dropdown.map((item) => {
-            console.log(item.name);
             return <option value={item.name}>{item.name}</option>;
           })}
         </select>
@@ -47,7 +46,9 @@ function Header() {
       <div className="header_nav">
         <Link to="login" style={{ textDecoration: "none" }}>
           <div onClick={handleAuthentication} className="header_option">
-            <span className="header_optionLineOne">Hello Guest</span>
+            <span className="header_optionLineOne">
+              Hello {user ? userName : "Guest"}
+            </span>
             <span className="header_optionLineTwo">
               {user ? "Sign Out" : "Sign In"}
             </span>
